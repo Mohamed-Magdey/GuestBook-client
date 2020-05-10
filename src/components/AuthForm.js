@@ -17,7 +17,6 @@ export default class AuthForm extends Component {
             <div className="container">
                 <h2 className="description">{heading}</h2>
                 <form onSubmit={this.handleSubmit} className="guest-form">
-                    <h2>{heading}</h2>
                     <div className="field">
                         <label htmlFor="email">Email:</label>
                         <input
