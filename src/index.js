@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import GuestBook from './GuestBook';
+import GuestBook from './containers/GuestBook';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
