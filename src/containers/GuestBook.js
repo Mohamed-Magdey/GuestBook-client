@@ -16,4 +16,10 @@ const GuestBook = () => (
     </Provider>
 );
 
+function mapStateToProps(state) {
+    return {
+        currentUser: state.currentUser
+    }
+}
+
 export default GuestBook;
