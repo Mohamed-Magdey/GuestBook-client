@@ -1,10 +1,10 @@
 import React from 'react';
 import {Link} from 'react-router-dom';;
 
-const MessageItem = ({text, username}) => (
+const MessageItem = ({message, username}) => (
     <div>
         <Link to='/'>@{username} &nbsp;</Link>
-        <p>{text}</p>
+        <p>{message}</p>
     </div>
 )
 

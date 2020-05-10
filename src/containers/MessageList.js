@@ -12,11 +12,15 @@ class MessageList extends Component {
         let messageList = messages.map(m=> (
             <MessageItem
                 key={m._id}
-                text={m.text}
+                message={m.message}
                 username={m.user.username}
             />
         ));
-        return messageList;
+        return (
+            <div>
+                {messageList}
+            </div>
+        );
     }
 }
 

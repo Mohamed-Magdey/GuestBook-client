@@ -21,15 +21,7 @@ nav {
 }
 
 a {
-  text-decoration: none;
-  opacity: 0.9;
-  color: white;
-  font-weight: bold;
-}
-
-a:hover {
-  opacity: 1;
-  text-decoration: underline;
+    text-decoration: none;
 }
 
 /* Header Style */
@@ -61,6 +53,17 @@ header nav ul {
 
 header nav ul li {
   margin: 15px 23px 20px;
+}
+
+header nav ul li a {
+    opacity: 0.9;
+    color: white;
+    font-weight: bold;
+}
+
+header nav ul li a:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
 
 /* Section Style */

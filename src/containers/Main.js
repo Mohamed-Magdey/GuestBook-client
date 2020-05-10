@@ -4,12 +4,16 @@ import {connect} from 'react-redux';
 import AuthForm from '../components/AuthForm';
 import {authUser} from '../store/actions/auth';
 import {removeError} from "../store/actions/errors";
+import MessageList from './MessageList';
 
 const Main = props => {
-    const {authUser, errors, removeError} = props;
+    const {currentUser, authUser, errors, removeError} = props;
     return (
         <section>
             <Switch>
+                {currentUser.isAuthenticated && (
+                    <Route exact path="/" render={() => <MessageList />} />
+                )}
                 <Redirect exact from="/" to="signup" />
                 <Route
                     exact
