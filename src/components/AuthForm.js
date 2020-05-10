@@ -29,7 +29,7 @@ export default class AuthForm extends Component {
 
     render() {
         const {email, username} = this.state;
-        const {heading, buttonText, signUp, errors, removeError} = this.props;
+        const {heading, buttonText, signUp, history, errors, removeError} = this.props;
 
         history.listen(() => {
             removeError();
@@ -39,7 +39,7 @@ export default class AuthForm extends Component {
             <div className="container">
                 <h2 className="description">{heading}</h2>
                 {errors.message && (
-                    <div>errors.message</div>
+                    <div>{errors.message}</div>
                 )}
                 <form onSubmit={this.handleSubmit} className="guest-form">
                     <div className="field">
