@@ -7,6 +7,7 @@ class Navbar extends Component {
         return (
             <header>
                 <nav>
+                    <div id="brand">GuestBook</div>
                     <ul>
                         <li>
                             <Link to="/signup">Sign up</Link>
