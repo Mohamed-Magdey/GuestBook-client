@@ -10,9 +10,15 @@ export default class AuthForm extends Component {
         };
     }
 
+    handleChange = e => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
     render() {
         const {email, username} = this.state;
-        const {heading, buttonText} = this.props;
+        const {heading, buttonText, signUp} = this.props;
         return (
             <div className="container">
                 <h2 className="description">{heading}</h2>
@@ -39,6 +45,22 @@ export default class AuthForm extends Component {
                             onChange={this.handleChange}
                         />
                     </div>
+                    {signUp && (
+                        <div className="field">
+                            <label htmlFor="username">Username:</label>
+                            <input
+                                placeholder="Username"
+                                type="text"
+                                id="username"
+                                name="username"
+                                value={username}
+                                onChange={this.handleChange}
+                            />
+                        </div>
+                    )}
+                    <button type="submit">
+                        {buttonText}
+                    </button>
                 </form>
             </div>
         );
