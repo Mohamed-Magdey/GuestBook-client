@@ -5,7 +5,7 @@ import AuthForm from '../components/AuthForm';
 import {authUser} from '../store/actions/auth';
 import {removeError} from "../store/actions/errors";
 
-const Main = () => {
+const Main = props => {
     const {authUser, errors, removeError} = props;
     return (
         <section>
@@ -17,6 +17,9 @@ const Main = () => {
                     render={props => {
                         return (
                             <AuthForm
+                                removeError={removeError}
+                                errors={errors}
+                                onAuth={authUser}
                                 buttonText="Log in"
                                 heading="Welcome Back."
                                 {...props} />
@@ -30,6 +33,9 @@ const Main = () => {
                         return (
                             <AuthForm
                                 signUp
+                                removeError={removeError}
+                                errors={errors}
+                                onAuth={authUser}
                                 buttonText="Sign up!"
                                 heading="Join To GuestBook."
                                 {...props}

@@ -14,14 +14,28 @@ export default class AuthForm extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-    }
+    };
+
+    handleSubmit = e => {
+        e.preventDefault();
+        const authType = this.props.signUp ? "signup" : "signin";
+        this.props
+            .onAuth(authType, this.state)
+            .then(() => {
+                this.props.history.push("/");
+            })
+            .catch(() => {})
+    };
 
     render() {
         const {email, username} = this.state;
-        const {heading, buttonText, signUp} = this.props;
+        const {heading, buttonText, signUp, errors, removeError} = this.props;
         return (
             <div className="container">
                 <h2 className="description">{heading}</h2>
+                {errors.message && (
+                    <div>errors.message</div>
+                )}
                 <form onSubmit={this.handleSubmit} className="guest-form">
                     <div className="field">
                         <label htmlFor="email">Email:</label>
