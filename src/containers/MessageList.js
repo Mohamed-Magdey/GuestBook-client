@@ -17,9 +17,10 @@ class MessageList extends Component {
             />
         ));
         return (
-            <div>
+            <ul id="messages">
                 {messageList}
-            </div>
+            </ul>
+
         );
     }
 }

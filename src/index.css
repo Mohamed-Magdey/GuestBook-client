@@ -201,3 +201,24 @@ button:active {
     line-height: 20px;
     font-size: 15px;
 }
+
+/* messages */
+
+#messages {
+    width: 45%;
+    padding: 7px 20px 12px;
+    margin: 0 auto;
+}
+
+.list-item {
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #e6ecf0;
+    text-align: left;
+}
+
+
+.list-item:hover {
+    background-color: #e6ecf0;
+}
