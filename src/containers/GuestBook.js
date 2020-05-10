@@ -1,12 +1,15 @@
 import React from 'react';
 import {Provider} from 'react-redux';
-import {configureStore} from '../store'
+import {configureStore} from '../store';
+import {BrowserRouter as Router} from 'react-router-dom';
 
 const store = configureStore();
 
 const GuestBook = () => (
     <Provider store={store}>
-        <div/>
+        <Router>
+            <div/>
+        </Router>
     </Provider>
 );
 
