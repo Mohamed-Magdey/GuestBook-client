@@ -2,6 +2,7 @@ import {apiCall} from '../../services/api';
 import {SET_CURRENT_USER} from '../actionTypes';
 import {addError, removeError} from './errors';
 
+// action creator for user
 export function setCurrentUser(user) {
     return {
         type: SET_CURRENT_USER,
