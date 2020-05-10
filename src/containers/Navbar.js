@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
 
 class Navbar extends Component {
     render() {
@@ -20,4 +21,10 @@ class Navbar extends Component {
     }
 }
 
-export default Navbar;
+function mapStateToProps(state) {
+    return {
+        currentUser: state.currentUser
+    };
+}
+
+export default connect(mapStateToProps, null)(Navbar);
