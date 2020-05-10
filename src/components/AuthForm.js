@@ -39,7 +39,7 @@ export default class AuthForm extends Component {
             <div className="container">
                 <h2 className="description">{heading}</h2>
                 {errors.message && (
-                    <div>{errors.message}</div>
+                    <div className="error-message">{errors.message}</div>
                 )}
                 <form onSubmit={this.handleSubmit} className="guest-form">
                     <div className="field">
