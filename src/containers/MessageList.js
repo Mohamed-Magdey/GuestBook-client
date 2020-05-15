@@ -36,7 +36,6 @@ class MessageList extends Component {
                 <form className="container message-form" onSubmit={this.handleNewMessage}>
                     <input
                         placeholder="Write your message"
-                        className="form-control"
                         type="text"
                         value={this.state.message}
                         onChange={e => this.setState({message: e.target.value})}
