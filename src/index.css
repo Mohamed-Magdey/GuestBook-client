@@ -24,6 +24,16 @@ a {
     text-decoration: none;
 }
 
+button {
+    transition: 400ms cubic-bezier(.08,.52,.52,1) transform;
+}
+
+button:active {
+    transform: scale(.96);
+    transform-origin: center center;
+    transition: 200ms cubic-bezier(.12,.8,.32,1) transform;
+}
+
 /* Header Style */
 
 header {
@@ -163,7 +173,7 @@ label {
   }
 }
 
-button {
+.btn-new {
   width: auto;
   height: 50px;
   color: #fff;
@@ -177,14 +187,10 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.btn-new:hover {
   background: #5f27cd;
   opacity: 1;
   color: #f1f2f6;
-}
-
-button:active {
-  box-shadow: -1px 3px 1px 1px #3f51b5;
 }
 
 /* error message */
@@ -224,6 +230,12 @@ button:active {
     background-color: #e6ecf0;
 }
 
+.list-item p {
+    margin: 5px 0;
+    padding: 10px 0;
+    border-bottom: 2px solid #e0ebe8;
+}
+
 .message-form {
     position: relative;
     top: -8em;
@@ -238,6 +250,26 @@ button:active {
     width: 70%;
     padding: 20px;
     height: calc(1.5em + 0.75rem + 15px);
+}
+
+.btn-delete {
+    width: auto;
+    height: 32px;
+    border: none;
+    font-size: 1rem;
+    margin: 5px 0 0 0;
+    background-color: inherit;
+    outline: none;
+    cursor: pointer;
+    font-weight: 600;
+    line-height: 14px;
+    padding: 0 5px;
+    color: #606770
+}
+
+.btn-delete:hover {
+    background-color: rgba(0, 0, 0, .05);
+    border-radius: 2px;
 }
 
 @media all and (max-width: 700px) {
