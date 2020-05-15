@@ -13,7 +13,8 @@
 - #### `react-redux`:
     Used to connect `react` with `redux`
 - #### `redux-thunk`:
-     It's is a middleware that lets you call action creators<br/> that return a function instead of an action object.
+     It's is a middleware that lets you call action creators that return a function instead of an action object.
+     And then used to dispatch regular synchronous actions inside the body of the function once the asynchronous operations have completed.
 - #### `jwt-decode`:
    Used for decoding JWTs token.
 - #### `axios`:
