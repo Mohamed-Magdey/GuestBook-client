@@ -1,20 +1,18 @@
 import React from 'react';
-import {Switch, Route, withRouter, Redirect} from 'react-router-dom';
+import {Switch, Route, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import AuthForm from '../components/AuthForm';
 import {authUser} from '../store/actions/auth';
 import {removeError} from "../store/actions/errors";
 import MessageList from './MessageList';
+import withAuth from "../hocs/withAuth";
 
 const Main = props => {
-    const {currentUser, authUser, errors, removeError} = props;
+    const {authUser, errors, removeError} = props;
     return (
         <section>
             <Switch>
-                {currentUser.isAuthenticated && (
-                    <Route exact path="/" render={() => <MessageList />} />
-                )}
-                <Redirect exact from="/" to="signup" />
+                <Route exact path="/" component={withAuth(MessageList)} />
                 <Route
                     exact
                     path="/signin"
