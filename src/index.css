@@ -168,8 +168,7 @@ button {
   height: 50px;
   color: #fff;
   background: #0062cc;
-  border: 0;
-  border-radius: 5%;
+  border: none;
   font-size: 1rem;
   margin: 0 auto 15px;
   padding: 1rem;
@@ -208,6 +207,8 @@ button:active {
     width: 45%;
     padding: 7px 20px 12px;
     margin: 0 auto;
+    position: relative;
+    top: -5em
 }
 
 .list-item {
@@ -221,4 +222,28 @@ button:active {
 
 .list-item:hover {
     background-color: #e6ecf0;
+}
+
+.message-form {
+    position: relative;
+    top: -8em;
+    width: 42%;
+    height: 100%;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.message-form input {
+    width: 70%;
+    padding: 20px;
+    height: calc(1.5em + 0.75rem + 15px);
+}
+
+@media all and (max-width: 700px) {
+    #messages {
+        width: 70%;
+        padding: 7px 20px 12px;
+        margin: 0 auto;
+    }
 }
