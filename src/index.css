@@ -76,6 +76,15 @@ header nav ul li a:hover {
     text-decoration: underline;
 }
 
+@media all and (max-width: 700px) {
+    #brand {
+        font-size: 25px;
+    }
+    header nav ul li {
+        margin: 12px 15px 20px;
+    }
+}
+
 /* Section Style */
 
 section {
@@ -174,17 +183,19 @@ label {
 }
 
 .btn-new {
-  width: auto;
+    width: auto;
   height: 50px;
   color: #fff;
   background: #0062cc;
   border: none;
   font-size: 1rem;
   margin: 0 auto 15px;
-  padding: 1rem;
+    padding: .5em 1em;
   outline: none;
   opacity: 0.75;
   cursor: pointer;
+    white-space: nowrap;
+
 }
 
 .btn-new:hover {
@@ -223,6 +234,7 @@ label {
     background-color: white;
     border: 1px solid #e6ecf0;
     text-align: left;
+    overflow-wrap: break-word;
 }
 
 
@@ -243,13 +255,18 @@ label {
     height: 100%;
     padding: 10px 10px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .message-form input {
-    width: 70%;
-    padding: 20px;
+    width: 100%;
+    padding: .5em 1em;
     height: calc(1.5em + 0.75rem + 15px);
+}
+
+.message-form .btn-new {
+    margin: 15px 0 0 0;
 }
 
 .btn-delete {
@@ -277,5 +294,8 @@ label {
         width: 70%;
         padding: 7px 20px 12px;
         margin: 0 auto;
+    }
+    .message-form {
+        width: 70%
     }
 }
