@@ -18,7 +18,7 @@ export const fetchMessages = () => {
     }
 };
 
-export const addNewMessage = message => (getState) => {
+export const addNewMessage = message => (dispatch, getState) => {
     let {currentUser} = getState();
     const userId = currentUser.user.id;
     return apiCall("post", `/api/users/${userId}/messages`, {message})
