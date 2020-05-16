@@ -32,7 +32,7 @@ class MessageItem extends Component {
         if(isCorrectUser && isUpdated === id) {
             return (
                 <li className="list-item">
-                    <Link to='/' style={{fontWeight: 'bold'}}>@{username} &nbsp;</Link>
+                    <Link to='/'>@{username} &nbsp;</Link>
                     <input
                         type="text"
                         value={updated}
@@ -44,7 +44,7 @@ class MessageItem extends Component {
         }
         return (
             <li className="list-item">
-                <Link to='/' style={{fontWeight: 'bold'}}>@{username} &nbsp;</Link>
+                <Link to='/'>@{username} &nbsp;</Link>
                 <p>{message}</p>
                 {isCorrectUser && (
                     <div>

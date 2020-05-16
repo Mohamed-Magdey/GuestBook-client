@@ -242,6 +242,12 @@ label {
     background-color: #e6ecf0;
 }
 
+.list-item a {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
 .list-item p {
     margin: 5px 0;
     padding: 10px 0;
@@ -259,7 +265,7 @@ label {
     justify-content: space-between;
 }
 
-.message-form input {
+.message-list input {
     width: 100%;
     padding: .5em 1em;
     height: calc(1.5em + 0.75rem + 15px);

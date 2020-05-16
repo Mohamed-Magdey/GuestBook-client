@@ -58,7 +58,7 @@ class MessageList extends Component {
         ));
 
         return (
-            <div>
+            <div className="message-list">
                 <form className="container message-form" onSubmit={this.handleNewMessage}>
                     <input
                         placeholder="Write your message"
