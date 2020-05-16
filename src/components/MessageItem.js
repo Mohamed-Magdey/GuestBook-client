@@ -5,13 +5,16 @@ class MessageItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            updated: this.props.message
+            updated: ''
         }
     }
 
-    // get right messageItem
-    handleChange = e => {
+    // get right messageItem with it's value
+    handleChange =  e => {
         let id = e.target.getAttribute("data-key");
+        this.setState((prevState, prevProps) => {
+            return {updated: prevProps.message}
+        })
         this.props.handleUpdate(id);
     };
 
@@ -28,12 +31,15 @@ class MessageItem extends Component {
 
         if(isCorrectUser && isUpdated === id) {
             return (
+                <li className="list-item">
+                    <Link to='/' style={{fontWeight: 'bold'}}>@{username} &nbsp;</Link>
                     <input
                         type="text"
                         value={updated}
                         onChange={e => this.setState({updated: e.target.value})}
                         onKeyDown={this.handleKeyDown}
                     />
+                </li>
             )
         }
         return (
@@ -42,8 +48,8 @@ class MessageItem extends Component {
                 <p>{message}</p>
                 {isCorrectUser && (
                     <div>
-                        <button data-key={id} className="btn-delete" onClick={this.handleChange}>edit</button>
-                        <button className="btn-delete" onClick={removeMessage}>delete</button>
+                        <button data-key={id} className="btn-message" onClick={this.handleChange}>edit</button>
+                        <button className="btn-message" onClick={removeMessage}>delete</button>
                     </div>
                 )}
             </li>
