@@ -31,6 +31,12 @@ export const addNewMessage = message => (dispatch, getState) => {
         .catch(err => addError(err.message));
 };
 
+export const updateMessage = message => (userId, messageId) => {
+    return apiCall("put", `/api/users/${userId}/messages/${messageId}`, {message})
+        .then(() => {})
+        .catch(err => addError(err.message));
+};
+
 export const removeMessage = (userId, messageId) => {
     return dispatch => {
         return apiCall("delete", `/api/users/${userId}/messages/${messageId}`)
