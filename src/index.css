@@ -152,6 +152,21 @@ label {
   margin-right: 3%;
 }
 
+@media all and (max-width: 1400px) {
+    .field {
+        min-width: 80%;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: space-around;
+        align-self: center;
+    }
+
+    label {
+        padding-bottom: 10px;
+        text-align: left;
+    }
+}
+
 @media all and (max-width: 700px) {
   .container {
     font-size: 17px;
