@@ -5,7 +5,7 @@
   },
   "proxies": {
     "/api": {
-      "origin": "https://guestbook-server.herokuapp.com/api"
+      "origin": "https://guestbook-web-app.herokuapp.com/api"
     }
   }
 }
