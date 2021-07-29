@@ -1,49 +1,45 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {Link, withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import {logout} from '../store/actions/auth';
 
-class Navbar extends Component {
-    logout = e => {
+const Navbar = () => {
+    const currentUser = useSelector(state => state.currentUser);
+    const dispatch = useDispatch();
+
+    const logOut = e => {
         e.preventDefault();
-        this.props.logout();
-        this.props.history.push('/signin');
+        dispatch(logout());
     };
-    render() {
-        return (
-            <header>
-                <nav>
-                    <div id="brand">GuestBook</div>
-                    {this.props.currentUser.isAuthenticated ? (
-                        <ul>
-                            <li>
-                                {/*<Link to={`/users/${this.props.currentUser.user.id}/messages/new`}>New Message</Link>*/}
-                                <Link to='/'>{this.props.currentUser.user.username}</Link>
-                            </li>
-                            <li>
-                                <a onClick={this.logout} href="/signin">Log out</a>
-                            </li>
-                        </ul>
-                    ) : (
-                        <ul>
-                            <li>
-                                <Link to="/signup">Sign up</Link>
-                            </li>
-                            <li>
-                                <Link to="/signin">Log in</Link>
-                            </li>
-                        </ul>
-                    )}
-                </nav>
-            </header>
-        )
-    }
+    
+    return (
+        <header>
+            <nav>
+                <div id="brand">GuestBook</div>
+                {currentUser.isAuthenticated ? (
+                    <ul>
+                        <li>
+                            {/*<Link to={`/users/${this.props.currentUser.user.id}/messages/new`}>New Message</Link>*/}
+                            <Link to='/'>{currentUser.user.username}</Link>
+                        </li>
+                        <li>
+                            <Link onClick={logOut} to="/signin">Log out</Link>
+                        </li>
+                    </ul>
+                ) : (
+                    <ul>
+                        <li>
+                            <Link to="/signup">Sign up</Link>
+                        </li>
+                        <li>
+                            <Link to="/signin">Log in</Link>
+                        </li>
+                    </ul>
+                )}
+            </nav>
+        </header>
+    )
 }
 
-function mapStateToProps(state) {
-    return {
-        currentUser: state.currentUser
-    };
-}
 
-export default withRouter(connect(mapStateToProps, {logout})(Navbar));
+export default withRouter(Navbar);
