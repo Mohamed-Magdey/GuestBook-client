@@ -1,14 +1,16 @@
 import React from 'react';
 import {Switch, Route, withRouter} from 'react-router-dom';
-import {connect} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import AuthForm from '../components/AuthForm';
 import {authUser} from '../store/actions/auth';
 import {removeError} from "../store/actions/errors";
 import MessageList from './MessageList';
 import withAuth from "../hocs/withAuth";
 
-const Main = props => {
-    const {authUser, errors, removeError} = props;
+const Main = () => {
+    const errors = useSelector(state => state.errors);
+    const dispatch = useDispatch();
+
     return (
         <section>
             <Switch>
@@ -24,6 +26,7 @@ const Main = props => {
                                 onAuth={authUser}
                                 buttonText="Log in"
                                 heading="Welcome Back."
+                                dispatch={dispatch}
                                 {...props} />
                         );
                     }}
@@ -35,11 +38,12 @@ const Main = props => {
                         return (
                             <AuthForm
                                 signUp
-                                removeError={removeError}
+                                removeError={dispatch(removeError)}
                                 errors={errors}
-                                onAuth={authUser}
+                                onAuth={dispatch(authUser)}
                                 buttonText="Sign up!"
                                 heading="Join To GuestBook."
+                                dispatch={dispatch}
                                 {...props}
                             />
                         );
@@ -50,11 +54,4 @@ const Main = props => {
     )
 };
 
-function mapStateToProps(state) {
-    return {
-        currentUser: state.currentUser,
-        errors: state.errors
-    }
-}
-
-export default withRouter(connect(mapStateToProps, {authUser, removeError})(Main));
+export default withRouter(Main);

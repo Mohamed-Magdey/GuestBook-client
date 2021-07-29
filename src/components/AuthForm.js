@@ -19,12 +19,12 @@ export default class AuthForm extends Component {
     handleSubmit = e => {
         e.preventDefault();
         const authType = this.props.signUp ? "signup" : "signin";
-        this.props
-            .onAuth(authType, this.state)
-            .then(() => {
-                this.props.history.push("/");
-            })
-            .catch(() => {})
+
+        this.props.dispatch(
+            this.props.onAuth(authType, this.state)
+        ).then(() => {
+            this.props.history.push("/");
+        }).catch(() => {})
     };
 
     render() {
@@ -32,7 +32,7 @@ export default class AuthForm extends Component {
         const {heading, buttonText, signUp, history, errors, removeError} = this.props;
 
         history.listen(() => {
-            removeError();
+            this.props.dispatch(removeError);
         });
 
         return (
