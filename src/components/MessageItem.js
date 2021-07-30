@@ -25,8 +25,12 @@ class MessageItem extends Component {
         }
     };
 
+    handleClickRemove = () => {
+       this.props.dispatch(this.props.removeMessage(this.props.userId, this.props.id));
+    }
+
     render() {
-        const {id, message, username, removeMessage, isCorrectUser, isUpdated} = this.props;
+        const {id, message, username, isCorrectUser, isUpdated} = this.props;
         const {updated} = this.state;
 
         if(isCorrectUser && isUpdated === id) {
@@ -49,7 +53,7 @@ class MessageItem extends Component {
                 {isCorrectUser && (
                     <div>
                         <button data-key={id} className="btn-message" onClick={this.handleChange}>edit</button>
-                        <button className="btn-message" onClick={removeMessage}>delete</button>
+                        <button className="btn-message" onClick={this.handleClickRemove}>delete</button>
                     </div>
                 )}
             </li>
