@@ -40,7 +40,7 @@ const Main = () => {
                                 signUp
                                 removeError={dispatch(removeError)}
                                 errors={errors}
-                                onAuth={dispatch(authUser)}
+                                onAuth={authUser}
                                 buttonText="Sign up!"
                                 heading="Join To GuestBook."
                                 dispatch={dispatch}
