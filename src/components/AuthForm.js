@@ -31,7 +31,7 @@ const AuthForm = ({heading, buttonText, signUp, history, errors, removeError, on
         dispatch(
             onAuth(authType, userData)
         ).then(() => {
-            history.push("/");
+            history.replace("/");
         }).catch(() => {})
     };
 
