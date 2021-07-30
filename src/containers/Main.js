@@ -1,5 +1,5 @@
 import React from 'react';
-import {Switch, Route, withRouter} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import AuthForm from '../components/AuthForm';
 import {authUser} from '../store/actions/auth';
@@ -54,4 +54,4 @@ const Main = () => {
     )
 };
 
-export default withRouter(Main);
+export default Main;
