@@ -1,28 +1,19 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import React, {useEffect} from 'react';
+import {useSelector} from 'react-redux';
 
 export default function withAuth(ComponentToBeRendered) {
-    class Authenticate extends Component {
-        UNSAFE_componentWillMount() {
-            if (this.props.isAuthenticated === false) {
-                this.props.history.push('/signin');
+    const Authenticate = (props) => {
+        const isAuthenticated = useSelector(state => state.currentUser.isAuthenticated);
+
+        useEffect(() => {
+            if (isAuthenticated === false) {
+                props.history.push('/signin');
             }
-        }
-        UNSAFE_componentWillUpdate(nextProps) {
-            if (nextProps.isAuthenticated === false) {
-                nextProps.history.push('/signin');
-            }
-        }
-        render() {
-            return <ComponentToBeRendered {...this.props} />
-        }
+        }, [isAuthenticated])
+        
+        return <ComponentToBeRendered {...props} />
     }
 
-    function mapStateToProps(state) {
-        return {
-            isAuthenticated: state.currentUser.isAuthenticated
-        }
-    }
 
-    return connect(mapStateToProps, null)(Authenticate);
+    return Authenticate;
 }
